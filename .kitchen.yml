@@ -17,4 +17,8 @@ suites:
   - name: default
     run_list:
       - recipe[reposync::default]
+      - recipe[test::default]
     attributes:
+      yum:
+        epel:
+          mirrorlist: http://mirrors.fedoraproject.org/metalink?repo=epel-7&arch=$basearch

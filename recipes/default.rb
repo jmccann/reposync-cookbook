@@ -13,11 +13,8 @@ resources("template[#{node['nginx']['dir']}/sites-available/default]").cookbook 
 
 package 'yum-utils'
 package 'createrepo'
+package 'crudini'
 
 directory node['nginx']['default_root'] do
   recursive true
-end
-
-execute 'reposync -l -g --download-metadata' do
-  cwd node['nginx']['default_root']
 end
